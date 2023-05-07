@@ -17,36 +17,36 @@
       {
             vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
               console.log(_info);
-              unityI.SendMessage('JS','SetName', _info.first_name);
-              unityI.SendMessage('JS','AVA', _info.photo_200);
+              unityI.SendMessage('VK','SetName', _info.first_name);
+              unityI.SendMessage('VK','AVA', _info.photo_200);
             });
       }
       function JS_SurName()
       {
             vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
               console.log(_info);
-              unityI.SendMessage('JS','SetSurName', _info.last_name);
+              unityI.SendMessage('VK','SetSurName', _info.last_name);
             });
       }  
       function JS_Data()
       {
             vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
               console.log(_info);
-              unityI.SendMessage('JS','SetData', "" + _info.bdate);
+              unityI.SendMessage('VK','SetData', "" + _info.bdate);
             });
       }
         function JS_City()
       {
             vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
               console.log(_info);
-              unityI.SendMessage('JS','SetCity', "" + _info.city.title);
+              unityI.SendMessage('VK','SetCity', "" + _info.city.title);
             });
       }
       function JS_Load ()
       {
             vkBridge.send('VKWebAppStorageGet',{"keys": ["_save"]}).then(data =>{
               console.log(data);
-              unityI.SendMessage('JS','USE_Load', data.keys[0].value);
+              unityI.SendMessage('VK','USE_Load', data.keys[0].value);
               //alert ("" + data.keys[0].value);
             });
         
@@ -58,7 +58,7 @@
   })
   .then( (data) => { 
     if (data.result) {
-      unityI.SendMessage('JS','Reklama_Coin', "100");
+      unityI.SendMessage('VK','Reklama_Coin', "100");
     } else {
       // Ошибка
     }
