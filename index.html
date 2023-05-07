@@ -4,8 +4,84 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | VK_TEST</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+
+<script>
+
+      function JS_Name()
+      {
+            vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
+              console.log(_info);
+              unityI.SendMessage('JS','SetName', _info.first_name);
+              unityI.SendMessage('JS','AVA', _info.photo_200);
+            });
+      }
+      function JS_SurName()
+      {
+            vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
+              console.log(_info);
+              unityI.SendMessage('JS','SetSurName', _info.last_name);
+            });
+      }  
+      function JS_Data()
+      {
+            vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
+              console.log(_info);
+              unityI.SendMessage('JS','SetData', "" + _info.bdate);
+            });
+      }
+        function JS_City()
+      {
+            vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
+              console.log(_info);
+              unityI.SendMessage('JS','SetCity', "" + _info.city.title);
+            });
+      }
+      function JS_Load ()
+      {
+            vkBridge.send('VKWebAppStorageGet',{"keys": ["_save"]}).then(data =>{
+              console.log(data);
+              unityI.SendMessage('JS','USE_Load', data.keys[0].value);
+              //alert ("" + data.keys[0].value);
+            });
+        
+      }    
+        function JS_Reklama ()
+      {
+        vkBridge.send('VKWebAppShowNativeAds', {
+  ad_format: 'interstitial' /* Тип рекламы */
+  })
+  .then( (data) => { 
+    if (data.result) {
+      unityI.SendMessage('JS','Reklama_Coin', "100");
+    } else {
+      // Ошибка
+    }
+  })
+  .catch((error) => { console.log(error); });
+      }  
+  
+        function JS_Save (data)
+      {
+            //alert ("" + data);
+            vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": "" + data}).then(_info =>{
+              console.log("Saved");
+            });
+      } 
+      jQuery(document).ready(function($) // страница прогружена
+      {
+            vkBridge.send('VKWebAppInit');
+      });
+
+
+
+    </script>
+
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -98,16 +174,17 @@
       }
 
       loadingBar.style.display = "block";
-
+      var unityI = null;
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+          unityI = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
-            window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
+            unityInstance.SetFullscreen(1);
           };
         }).catch((message) => {
           alert(message);
