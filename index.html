@@ -23,12 +23,16 @@
       }
         function JS_Load ()
       {
-            vkBridge.send('VKWebAppStorageGet',{"keys": ["_save"]}).then(data =>{
+            vkBridge.send('VKWebAppStorageGet',{"keys": ["LEVEL_save"]}).then(data =>{
               console.log(data);
-              unityI.SendMessage('VK','USE_Load', data.keys[0].value);
+              unityI.SendMessage('VK','USE_Load_LEVEL', data.keys[0].value);
               //alert ("" + data.keys[0].value);
             });
-        
+            vkBridge.send('VKWebAppStorageGet',{"keys": ["COIN_save"]}).then(data =>{
+              console.log(data);
+              unityI.SendMessage('VK','USE_Load_COIN', data.keys[0].value);
+              //alert ("" + data.keys[0].value);
+            });
       }    
         function JS_Reklama ()
       {
