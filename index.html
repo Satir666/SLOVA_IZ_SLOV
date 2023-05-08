@@ -13,7 +13,7 @@
 
 <script>
 
-      function JS_Name()
+        function JS_Name()
       {
             vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
               console.log(_info);
@@ -21,28 +21,7 @@
               unityI.SendMessage('VK','AVA', _info.photo_200);
             });
       }
-      function JS_SurName()
-      {
-            vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
-              console.log(_info);
-              unityI.SendMessage('VK','SetSurName', _info.last_name);
-            });
-      }  
-      function JS_Data()
-      {
-            vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
-              console.log(_info);
-              unityI.SendMessage('VK','SetData', "" + _info.bdate);
-            });
-      }
-        function JS_City()
-      {
-            vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
-              console.log(_info);
-              unityI.SendMessage('VK','SetCity', "" + _info.city.title);
-            });
-      }
-      function JS_Load ()
+        function JS_Load ()
       {
             vkBridge.send('VKWebAppStorageGet',{"keys": ["_save"]}).then(data =>{
               console.log(data);
