@@ -66,11 +66,18 @@
   .catch((error) => { console.log(error); });
       }  
   
-        function JS_Save (data)
+        function JS_Save_LEVEL (data)
       {
             //alert ("" + data);
-            vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": "" + data}).then(_info =>{
-              console.log("Saved");
+            vkBridge.send('VKWebAppStorageSet',{"key": "LEVEL_save" , "value": "" + data}).then(_info =>{
+              console.log("Saved_LEVEL");
+            });
+      } 
+          function JS_Save_COIN (data)
+      {
+            //alert ("" + data);
+            vkBridge.send('VKWebAppStorageSet',{"key": "COIN_save" , "value": "" + data}).then(_info =>{
+              console.log("Saved_COIN");
             });
       } 
       jQuery(document).ready(function($) // страница прогружена
