@@ -64,8 +64,8 @@
       } 
           function JS_Save_SLOVA (data)
       {
-            alert (data);
-            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVA_save" , "value": data}).then(_info =>{
+            alert ("" + data);
+            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVA_save" , "value": "" + data}).then(_info =>{
               console.log("" + data);
             });
       } 
