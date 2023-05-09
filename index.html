@@ -62,11 +62,11 @@
               console.log("Saved_LEVEL");
             });
       } 
-          function JS_Save_SLOVA (data)
+          function JS_Save_SLOVA (str)
       {
-            alert ("" + data);
-            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVA_save" , "value": "" + data}).then(_info =>{
-              console.log("" + data);
+            //alert ("" + str);
+            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVA_save" , "value": "" + str}).then(_info =>{
+              console.log("" + str);
             });
       } 
           function JS_Save_COIN (data)
