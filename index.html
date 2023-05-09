@@ -65,13 +65,13 @@
           function JS_Save_SLOVA (data)
       {
             //alert ("" + data);
-            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVA_save" , "value": "" + data}).then(_info =>{
-              console.log("Saved_SLOVA");
+            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVA_save" , "value": data}).then(_info =>{
+              console.log("" + data);
             });
       } 
           function JS_Save_COIN (data)
       {
-            //alert ("" + data);
+            alert (data);
             vkBridge.send('VKWebAppStorageSet',{"key": "COIN_save" , "value": "" + data}).then(_info =>{
               console.log("Saved_COIN");
             });
