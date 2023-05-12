@@ -22,6 +22,11 @@
               unityI.SendMessage('VK','AVA', _info.photo_200);
             });
       }
+  
+        function JS_FULL_SCREEN ()
+      {
+            unityInstance.SetFullscreen(1);
+      }
         function JS_Load ()
       {
             vkBridge.send('VKWebAppStorageGet',{"keys": ["LEVEL_save"]}).then(data =>{
