@@ -37,7 +37,7 @@
             vkBridge.send('VKWebAppStorageGet',{"keys": ["SLOVO123_save"]}).then(data =>{
               console.log(data);
               unityI.SendMessage('VK','Svoe_Slovo_Load', data.keys[0].value);
-              //alert ("" + data.keys[0].value);
+              alert ("" + data.keys[0].value);
             });
             vkBridge.send('VKWebAppStorageGet',{"keys": ["COIN_save"]}).then(data =>{
               console.log(data);
@@ -86,7 +86,7 @@
       } 
         function JS_SLOVO (data)
       {
-            //alert ("" + data);
+            alert ("" + data);
             vkBridge.send('VKWebAppStorageSet',{"key": "SLOVO123_save" , "value": "" + data}).then(_info =>{
               console.log("SVOE_SLOVO");
             });
