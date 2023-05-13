@@ -77,13 +77,6 @@
               console.log("Saved_LEVEL");
             });
       } 
-        function JS_SLOVO (data)
-      {
-            //alert ("" + data);
-            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVO123_save" , "value": "" + data}).then(_info =>{
-              console.log("Saved_LEVEL");
-            });
-      } 
         function JS_Svoe_SLOVO (data)
       {
             //alert ("" + data);
@@ -91,6 +84,13 @@
               console.log("SVOE_SLOVO");
             });
       } 
+        function JS_SLOVO (data)
+      {
+            //alert ("" + data);
+            vkBridge.send('VKWebAppStorageSet',{"key": "SLOVO123_save" , "value": "" + data}).then(_info =>{
+              console.log("SVOE_SLOVO");
+            });
+      }
           function JS_Save_SLOVA (str)
       {
             //alert ("" + str);
