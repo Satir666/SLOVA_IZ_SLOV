@@ -32,7 +32,7 @@
             vkBridge.send('VKWebAppStorageGet',{"keys": ["Settings_save"]}).then(data =>{
               console.log(data);
               unityI.SendMessage('VK','Settings_Load', data.keys[0].value);
-              //alert ("" + data.keys[0].value);
+              alert ("" + data.keys[0].value);
             });
             vkBridge.send('VKWebAppStorageGet',{"keys": ["LEVEL_save"]}).then(data =>{
               console.log(data);
@@ -87,7 +87,7 @@
       } 
         function JS_SAVE_SETTINGS (data)
       {
-            //alert ("" + data);
+            alert ("" + data);
             vkBridge.send('VKWebAppStorageSet',{"key": "Settings_save" , "value": "" + data}).then(_info =>{
               console.log("Saved_Settings");
             });
