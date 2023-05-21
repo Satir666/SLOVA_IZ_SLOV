@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="TemplateData/style.css">
 
 <script>
-        import java.net.URL;
-        import java.net.URLConnection;
-        import java.text.SimpleDateFormat;
-        import java.util.Date;
+        //import java.net.URL;
+        //import java.net.URLConnection;
+        //import java.text.SimpleDateFormat;
+        //import java.util.Date;
   
         function JS_Name()
       {
@@ -37,13 +37,12 @@
               console.log(data);
               unityI.SendMessage('VK','Settings_Load', data.keys[0].value);
               
-              URL url = new URL("http://worldtimeapi.org/api/timezone/Europe/London");
-              URLConnection conn = url.openConnection();
-              conn.connect();
-              String datetimeString = conn.getContent().toString();
-              alert(datetimeString);
+              //URL url = new URL("http://worldtimeapi.org/api/timezone/Europe/London");
+              //URLConnection conn = url.openConnection();
+              //conn.connect();
+              //String datetimeString = conn.getContent().toString();
+              //alert(datetimeString);
               
-              //alert ("" + data.keys[0].value);
             });
             vkBridge.send('VKWebAppStorageGet',{"keys": ["LEVEL_save"]}).then(data =>{
               console.log(data);
