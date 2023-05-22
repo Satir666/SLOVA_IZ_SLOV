@@ -52,7 +52,7 @@
             vkBridge.send('VKWebAppStorageGet',{"keys": ["BONUS"]}).then(data =>{
               console.log(data);
               unityI.SendMessage('VK','Load_Bonus', data.keys[0].value);
-              //alert ("" + data.keys[0].value);
+              alert ("" + data.keys[0].value);
             });
             vkBridge.send('VKWebAppStorageGet',{"keys": ["SLOVO123_save"]}).then(data =>{
               console.log(data);
@@ -102,7 +102,7 @@
       } 
           function JS_SAVE_BONUS (data)
       {
-            //alert ("" + data);
+            alert ("Save " + data);
             vkBridge.send('VKWebAppStorageSet',{"key": "BONUS" , "value": "" + data}).then(_info =>{
               console.log("Saved_BONUS");
             });
