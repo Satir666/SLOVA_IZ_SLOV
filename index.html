@@ -49,6 +49,11 @@
               unityI.SendMessage('VK','USE_Load_LEVEL', data.keys[0].value);
               //alert ("" + data.keys[0].value);
             });
+            vkBridge.send('VKWebAppStorageGet',{"keys": ["BONUS"]}).then(data =>{
+              console.log(data);
+              unityI.SendMessage('VK','Load_Bonus', data.keys[0].value);
+              //alert ("" + data.keys[0].value);
+            });
             vkBridge.send('VKWebAppStorageGet',{"keys": ["SLOVO123_save"]}).then(data =>{
               console.log(data);
               unityI.SendMessage('VK','Svoe_Slovo_Load', data.keys[0].value);
@@ -93,6 +98,13 @@
             //alert ("" + data);
             vkBridge.send('VKWebAppStorageSet',{"key": "LEVEL_save" , "value": "" + data}).then(_info =>{
               console.log("Saved_LEVEL");
+            });
+      } 
+          function JS_SAVE_BONUS (data)
+      {
+            //alert ("" + data);
+            vkBridge.send('VKWebAppStorageSet',{"key": "BONUS" , "value": "" + data}).then(_info =>{
+              console.log("Saved_BONUS");
             });
       } 
         function JS_SAVE_SETTINGS (data)
